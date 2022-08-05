@@ -1,9 +1,7 @@
 import pygame
 import random
-# я дрчоил с утра!
 
-WIDTH = 1600
-HEIGHT = 900
+WIDTH = 800
 
 # Color
 WHITE = (255, 255, 255)
@@ -16,30 +14,33 @@ METAL1 = (222, 224, 223)
 METAL2 = (200, 204, 203)
 
 mid_x = WIDTH // 2
-mid_y = HEIGHT // 2
 
 def start_window():
-    pygame.draw.rect(screen, RED,(mid_x - 8, mid_y - 90, 16, 16))
-    pygame.draw.circle(screen, METAL1, (mid_x, mid_y), 72)
-    pygame.draw.circle(screen, METAL2, (mid_x, mid_y), 16)
-    pygame.draw.circle(screen, BLACK, (mid_x, mid_y), 8)
-    pygame.draw.circle(screen, GRAYF, (mid_x + 50, mid_y), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x - 50, mid_y), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x , mid_y + 50), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x , mid_y - 50), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x + 36, mid_y - 36), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x + 36, mid_y + 36), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x - 36, mid_y - 36), 20, width = 2)
-    pygame.draw.circle(screen, GRAYF, (mid_x - 36, mid_y + 36), 20, width = 2)
+    pygame.draw.rect(screen, RED,(mid_x - (WIDTH / 100), mid_x - (WIDTH / 10), (WIDTH / 100), (WIDTH / 100)))
+    pygame.draw.circle(screen, METAL1, (mid_x, mid_x), (WIDTH / 5.55))
+    pygame.draw.circle(screen, METAL2, (mid_x, mid_x), (WIDTH / 25))
+    pygame.draw.circle(screen, BLACK, (mid_x, mid_x), (WIDTH / 50))
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 32), mid_x), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 32), mid_x), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x, mid_x + (WIDTH / 32)), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x, mid_x - (WIDTH / 32)), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 44.4), mid_x - (WIDTH / 44.4)), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 44.4), mid_x + (WIDTH / 44.4)), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 44.4), mid_x - (WIDTH / 44.4)), (WIDTH / 100), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 44.4), mid_x + (WIDTH / 44.4)), (WIDTH / 100), width = 2)
 
 pygame.init()
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((WIDTH, WIDTH))
 background_image = pygame.image.load("map.jpg").convert()
 
 running = True
 while running:
     screen.blit(background_image, [0,0])
     start_window()
+
+
+
+
 
 
 
