@@ -1,6 +1,6 @@
 import pygame
 import random
-
+# я дрчоил с утра!
 
 WIDTH = 1600
 HEIGHT = 900
