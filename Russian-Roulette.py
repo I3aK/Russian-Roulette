@@ -19,9 +19,7 @@ class bullet (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface( ((WIDTH // 23)*2, (WIDTH // 23)*2) )
-        self.image.fill(METAL1)
-        self.im = pygame.draw.circle(self.image, RED, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23), width = 0)
-        self.im.draw(self.image)
+        self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.rect.center = (mid_x, mid_x - (WIDTH / 8) )
 
