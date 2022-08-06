@@ -18,10 +18,12 @@ mid_x = WIDTH // 2
 class bullet (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((mid_x,mid_x - (WIDTH / 32)))
-        self.image.fill(RED)
+        self.image = pygame.Surface( ((WIDTH // 23)*2, (WIDTH // 23)*2) )
+        self.image.fill(METAL1)
+        self.im = pygame.draw.circle(self.image, RED, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23), width = 0)
+        self.im.draw(self.image)
         self.rect = self.image.get_rect()
-        self.rect.center = (WIDTH / 2, HEIGHT / 2)
+        self.rect.center = (mid_x, mid_x - (WIDTH / 8) )
 
 def start_window():
     pygame.draw.rect(screen, RED,(mid_x - (WIDTH / 62), mid_x - (WIDTH / 4), (WIDTH / 28), (WIDTH / 16)))
@@ -42,19 +44,24 @@ def start_window():
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, WIDTH))
 background_image = pygame.image.load("map.jpg").convert()
+all_sprites = pygame.sprite.Group()
+bullet = bullet()
+all_sprites.add(bullet)
+
+
 
 running = True
 while running:
     screen.blit(background_image, [0,0])
     start_window()
+    all_sprites.update()
 
 
 
 
 
 
-
-
+    all_sprites.draw(screen)
     pygame.display.flip()
     for event in pygame.event.get():
             # check for closing window
