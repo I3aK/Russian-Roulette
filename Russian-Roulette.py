@@ -24,10 +24,11 @@ class bullet (pygame.sprite.Sprite):
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
 
 def start_window():
-    pygame.draw.rect(screen, RED,(mid_x - (WIDTH / 100), mid_x - (WIDTH / 10), (WIDTH / 100), (WIDTH / 100)))
+    pygame.draw.rect(screen, RED,(mid_x - (WIDTH / 62), mid_x - (WIDTH / 4), (WIDTH / 28), (WIDTH / 16)))
     pygame.draw.circle(screen, METAL1, (mid_x, mid_x), (WIDTH / 5.55))
     pygame.draw.circle(screen, METAL2, (mid_x, mid_x), (WIDTH / 25))
     pygame.draw.circle(screen, BLACK, (mid_x, mid_x), (WIDTH / 50))
+<<<<<<< HEAD
     pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 32), mid_x), (WIDTH / 100), width = 2)
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 32), mid_x), (WIDTH / 100), width = 2)
     pygame.draw.circle(screen, GRAYF, (mid_x, mid_x + (WIDTH / 32)), (WIDTH / 100), width = 2)
@@ -38,6 +39,17 @@ def start_window():
     pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 44.4), mid_x + (WIDTH / 44.4)), (WIDTH / 100), width = 2)
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 44.4), mid_x - (WIDTH / 44.4)), (WIDTH / 100), width = 2)
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 44.4), mid_x + (WIDTH / 44.4)), (WIDTH / 100), width = 2)
+=======
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 8), mid_x), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 8), mid_x), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x, mid_x + (WIDTH / 8)), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23), width = 2)
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23), width = 2)
+
+>>>>>>> e5b1d05c5552f917dd07e1fbb15e6a24dc4f8671
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, WIDTH))
