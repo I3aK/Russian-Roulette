@@ -1,7 +1,9 @@
 import pygame
 import random
+import time
 
 WIDTH = 800
+FPS = 4
 
 # Color
 WHITE = (255, 255, 255)
@@ -45,7 +47,7 @@ background_image = pygame.image.load("map.jpg").convert()
 all_sprites = pygame.sprite.Group()
 bullet = bullet()
 all_sprites.add(bullet)
-
+clock = pygame.time.Clock()
 
 
 running = True
@@ -55,11 +57,23 @@ while running:
     all_sprites.update()
 
 
+    q = pygame.draw.circle(screen, GRAYF, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23), width = 2) # 1
+    w = pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23), width = 2) # 2
+    e = pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 8), mid_x), (WIDTH / 23), width = 2) # 3
+    r = pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23), width = 2) # 4
+    t = pygame.draw.circle(screen, GRAYF, (mid_x, mid_x + (WIDTH / 8)), (WIDTH / 23), width = 2) # 5
+    y = pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23), width = 2) # 6
+    u = pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 8), mid_x), (WIDTH / 23), width = 2) # 7
+    i = pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23), width = 2) # 8 
+    a = 5
+    q = pygame.draw.circle(screen, RED, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23)) # 1
+    time.sleep(0.2)
+    for b in range(a):
+        q = pygame.draw.circle(screen, GRAYF, (mid_x, mid_x - (WIDTH / 8)), (WIDTH / 23)) # 1
+        w = pygame.draw.circle(screen, RED, (mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23)) # 2
+        time.sleep(0.2)
 
 
-
-
-    all_sprites.draw(screen)
     pygame.display.flip()
     for event in pygame.event.get():
             # check for closing window
