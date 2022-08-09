@@ -2,8 +2,8 @@ import pygame
 import random
 import time
 
-WIDTH = 800
-FPS = 1
+WIDTH = 782
+FPS = 16
 
 # Color
 WHITE = (255, 255, 255)
@@ -82,8 +82,8 @@ while running:
     running1 = True
     if a == 0:
         while running1 :
-                render_end = font_end.render('GAME OVER', 1, pygame.Color('orange'))
-                screen.blit(render_end, (WIDTH // 2 - 200, WIDTH // 3))
+                render_end = font_end.render('GAME OVER', 1, pygame.Color('darkolivegreen2'))
+                screen.blit(render_end, (WIDTH // 3.57, WIDTH // 7))
                 pygame.display.flip()
                 keystate = pygame.key.get_pressed()
                 if keystate[pygame.K_SPACE]:
@@ -92,6 +92,7 @@ while running:
                     if event.type == pygame.QUIT:
                         running = False
                         running1 = False
+
     pygame.display.flip()
     for event in pygame.event.get():
             # check for closing window
