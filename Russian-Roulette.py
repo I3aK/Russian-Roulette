@@ -3,7 +3,7 @@ import random
 import time
 
 WIDTH = 800
-FPS = 2
+FPS = 1
 
 # Color
 WHITE = (255, 255, 255)
@@ -18,14 +18,14 @@ METAL2 = (200, 204, 203)
 mid_x = WIDTH // 2
 
 coordinates = {
-    1:(mid_x, mid_x - (WIDTH / 8)),
-    2:(mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)),
-    3:(mid_x + (WIDTH / 8), mid_x),
-    4:(mid_x + (WIDTH / 11), mid_x + (WIDTH / 11)),
-    5:(mid_x, mid_x + (WIDTH / 8)),
-    6:(mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)),
-    7:(mid_x - (WIDTH / 8), mid_x),
-    8:(mid_x - (WIDTH / 11), mid_x - (WIDTH / 11))
+    0:(mid_x, mid_x - (WIDTH / 8)),
+    1:(mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)),
+    2:(mid_x + (WIDTH / 8), mid_x),
+    3:(mid_x + (WIDTH / 11), mid_x + (WIDTH / 11)),
+    4:(mid_x, mid_x + (WIDTH / 8)),
+    5:(mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)),
+    6:(mid_x - (WIDTH / 8), mid_x),
+    7:(mid_x - (WIDTH / 11), mid_x - (WIDTH / 11))
 }
 
 class bullet (pygame.sprite.Sprite):
@@ -50,6 +50,10 @@ def start_window():
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23)) # 8 
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23)) # 6
 
+def close_game():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, WIDTH))
@@ -58,22 +62,36 @@ all_sprites = pygame.sprite.Group()
 bullet = bullet()
 all_sprites.add(bullet)
 clock = pygame.time.Clock()
-
+font_end = pygame.font.SysFont('Arial', 66, bold=True)
 
 running = True
 while running:
+    
     clock.tick(FPS)
+    
     screen.blit(background_image, [0,0])
+    
     start_window()
     all_sprites.update()
 
-    a = random.randint(1, 9)
+    a = random.randint(0, 8)
 
-    for b in range(1, a):
+    for b in range(a):
         pygame.draw.circle(screen, GRAYF, coordinates[b], (WIDTH / 23))
-        pygame.draw.circle(screen, RED, coordinates[(b+1)%8], (WIDTH / 23))
-
-
+        pygame.draw.circle(screen, RED, coordinates[(b+1) % 8], (WIDTH / 23))
+    running1 = True
+    if a == 0:
+        while running1 :
+                render_end = font_end.render('GAME OVER', 1, pygame.Color('orange'))
+                screen.blit(render_end, (WIDTH // 2 - 200, WIDTH // 3))
+                pygame.display.flip()
+                keystate = pygame.key.get_pressed()
+                if keystate[pygame.K_SPACE]:
+                     running1 = False
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+                        running1 = False
     pygame.display.flip()
     for event in pygame.event.get():
             # check for closing window
