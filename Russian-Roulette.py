@@ -3,7 +3,7 @@ import random
 import time
 
 WIDTH = 800
-FPS = 25
+FPS = 2
 
 # Color
 WHITE = (255, 255, 255)
@@ -48,7 +48,9 @@ def start_window():
     pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23)) # 2
     pygame.draw.circle(screen, GRAYF, (mid_x + (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23)) # 4
     pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x - (WIDTH / 11)), (WIDTH / 23)) # 8 
-    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23)) #
+    pygame.draw.circle(screen, GRAYF, (mid_x - (WIDTH / 11), mid_x + (WIDTH / 11)), (WIDTH / 23)) # 6
+
+
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, WIDTH))
 background_image = pygame.image.load("map.jpg").convert()
@@ -60,16 +62,16 @@ clock = pygame.time.Clock()
 
 running = True
 while running:
+    clock.tick(FPS)
     screen.blit(background_image, [0,0])
     start_window()
     all_sprites.update()
 
-    a = random.randint(1,8)
+    a = random.randint(1, 9)
 
     for b in range(1, a):
-        pygame.draw.circle(screen, GRAYF, coordinates[b], (WIDTH / 23) )
-        pygame.draw.circle(screen, RED, coordinates[b+1], (WIDTH / 23) )
-        time.sleep(0.2)
+        pygame.draw.circle(screen, GRAYF, coordinates[b], (WIDTH / 23))
+        pygame.draw.circle(screen, RED, coordinates[(b+1)%8], (WIDTH / 23))
 
 
     pygame.display.flip()
