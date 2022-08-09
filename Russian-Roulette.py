@@ -18,10 +18,10 @@ mid_x = WIDTH // 2
 class bullet (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface( ((WIDTH // 23)*2, (WIDTH // 23)*2) )
+        self.image = pygame.Surface( ((WIDTH // 23) * 2, (WIDTH // 23) * 2))
         self.image.fill(RED)
         self.rect = self.image.get_rect()
-        self.rect.center = (mid_x, mid_x - (WIDTH / 8) )
+        self.rect.center = (mid_x, mid_x - (WIDTH / 8))
 
 def start_window():
     pygame.draw.rect(screen, GREEN,(mid_x - (WIDTH / 62), mid_x - (WIDTH / 4), (WIDTH / 28), (WIDTH / 16)))
